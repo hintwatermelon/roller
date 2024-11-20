@@ -814,12 +814,13 @@ public class DatabaseInstaller {
         Connection con = null;
         try {
             con = db.getConnection();
-            Statement stmt = con.createStatement();
+            PreparedStatement stmt = con.prepareStatement("select value from roller_properties where name = ?");
 
-            // just check in the roller_properties table
-            ResultSet rs = stmt.executeQuery(
-                    "select value from roller_properties where name = '"+DBVERSION_PROP+"'");
+            
+            stmt.setString(1, DBVERSION_PROP);
 
+            ResultSet rs = stmt.execute(
+            );
             if(rs.next()) {
                 dbversion = Integer.parseInt(rs.getString(1));
 
