@@ -1,7 +1,7 @@
 codemods:
   only:
     - codeql:java/database-resource-leak
-    - codeql:java/error-message-exposure,
+    - codeql:java/error-message-exposure
     - codeql:java/http-response-splitting
     - codeql:java/insecure-cookie
     - codeql:java/jexl-expression-injection
